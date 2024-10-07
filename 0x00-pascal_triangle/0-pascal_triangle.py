@@ -4,14 +4,16 @@
 
 def pascal_triangle(n):
     """Generates pascal triangle up to row n."""
-    triangle = []
 
-    if n > 0:
-        for i in range(1, n+1):
-            row = []
-            first = 1
-            for j in range(1, i + 1):
-                row.append(first)
-                first = first * (i-j) // j
-            triangle.append(row)
+    triangle = []
+    if type(n) is not int or n <= 0:
         return triangle
+    for i in range(n):
+        row = []
+        for j in range(i + 1):
+            if j == 0 or j == i:
+                row.append(1)
+            elif 1 > 0 and j > 0:
+                row.append(triangle[i-1][j-1] + triangle[i-1][j])
+        triangle.append(row)
+    return triangle

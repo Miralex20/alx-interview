@@ -1,17 +1,20 @@
-#!/usr/bin/python3
-""" An Alx interview task on Lockboxes"""
+#!/usr/bin/env python3
+""" An Alx interview task """
+from typing import List
 
 
-def canUnlockAll(boxes):
+def canUnlockAll(boxes:List[List[int]]) -> bool:
     """ A function that performs the
     locked boxes task"""
+    n = len(boxes)
     unlocked = set([0])
-    closed = set(boxes[0]).difference(unlocked)
+    keys = list(boxes[0])
 
-    while len(closed) > 0:
-        key = closed.pop()
 
-        if key not in unlocked:
+    while keys:
+        key = keys.pop()
+        if key <= n and key not in unlocked:
             unlocked.add(key)
-            closed = closed.union(boxes[key]).difference(unlocked)
-    return len(unlocked) == len(boxes)
+            keys.extend(boxes[key])
+
+    return len(unlocked) == n

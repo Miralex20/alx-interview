@@ -3,13 +3,12 @@
 from typing import List
 
 
-def canUnlockAll(boxes:List[List[int]]) -> bool:
+def canUnlockAll(boxes: List[List[int]]) -> bool:
     """ A function that performs the
     locked boxes task"""
     n = len(boxes)
     unlocked = set([0])
     keys = list(boxes[0])
-
 
     while keys:
         key = keys.pop()

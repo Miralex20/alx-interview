@@ -15,5 +15,7 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
         if key <= n and key not in unlocked:
             unlocked.add(key)
             keys.extend(boxes[key])
+        else:
+            continue
 
     return len(unlocked) == n

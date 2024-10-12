@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ An Alx interview task on Lockboxes"""
-from typing import List
 
 
-def canUnlockAll(boxes:List[List[int]]) -> bool:
+def canUnlockAll(boxes):
     """ A function that performs the
     locked boxes task"""
     n = len(boxes)
